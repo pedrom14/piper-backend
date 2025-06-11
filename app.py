@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify, send_file
 import subprocess
 import os
 import uuid
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Pasta onde estarão os modelos de voz
 MODELS_DIR = "/app/models"  # esse caminho será ajustado para o Docker
@@ -41,3 +43,4 @@ def tts():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
